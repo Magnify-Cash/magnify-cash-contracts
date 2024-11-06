@@ -1,0 +1,103 @@
+{
+    "extensions.ignoreRecommendations": false,
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "files.autoSave": "onFocusChange",
+    "editor.insertSpaces": true,
+    "editor.hover.enabled": true,
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "solidity.telemetry": false,
+    "solidity.formatter": "prettier",
+    "cSpell.enableFiletypes": ["solidity"],
+    "[solidity]": {
+        "editor.defaultFormatter": "NomicFoundation.hardhat-solidity",
+        "editor.tabSize": 4
+    },
+    "[env]": {
+        "editor.defaultFormatter": "IronGeek.vscode-env",
+        "editor.tabSize": 4
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 4
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.tabSize": 4
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 4,
+        "editor.quickSuggestions": { "strings": true },
+        "editor.suggest.insertMode": "replace"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 4,
+        "editor.quickSuggestions": { "strings": true },
+        "editor.suggest.insertMode": "replace"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
+        "cSpell.fixSpellingWithRenameProvider": true,
+        "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+        "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "files.associations": {
+        "*.env.details": "env"
+    },
+    "cSpell.words": [
+        "Blockscout",
+        "Chainlink",
+        "commitlint",
+        "compat",
+        "depl",
+        "docgen",
+        "ethersproject",
+        "fulltrace",
+        "hardfork",
+        "Holesky",
+        "IERC",
+        "Initializable",
+        "IPFS",
+        "keccak",
+        "lintstagedrc",
+        "Merkle",
+        "mocharc",
+        "nomicfoundation",
+        "nomiclabs",
+        "Pausable",
+        "preinstall",
+        "Reentrancy",
+        "Sepolia",
+        "solcover",
+        "solhint",
+        "solhintignore",
+        "struct",
+        "structs",
+        "typechain",
+        "typecheck"
+    ]
+}

@@ -1,0 +1,19 @@
+name: Slither Analysis
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "contracts/**/*.sol"
+  pull_request:
+    paths:
+      - "contracts/**/*.sol"
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Slither
+        uses: crytic/slither-action@v0.4.0
