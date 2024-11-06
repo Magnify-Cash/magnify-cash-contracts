@@ -13,6 +13,8 @@ import "hardhat-abi-exporter";
 import "hardhat-gas-reporter";
 import "hardhat-tracer";
 
+import "./scripts/tasks/grant-backend-role";
+
 const envs = process.env;
 
 // Private keys can be set in `.env` file.
