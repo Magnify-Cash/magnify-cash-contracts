@@ -16,8 +16,12 @@ import "hardhat-tracer";
 const envs = process.env;
 
 // Private keys can be set in `.env` file.
-const ethereumMainnetKeys = envs.ETHEREUM_MAINNET_KEYS?.split(",") ?? [];
-const ethereumTestnetKeys = envs.ETHEREUM_TESTNET_KEYS?.split(",") ?? [];
+const baseMainnetKeys = envs.BASE_MAINNET_KEYS?.split(",") ?? [];
+const baseTestnetKeys = envs.BASE_TESTNET_KEYS?.split(",") ?? [];
+
+const baseChainID = 8453;
+const baseSepoliaChainID = 84532;
+const baseGasPrice = 1000000000;
 
 /*
  * The solc compiler optimizer is disabled by default to keep the Hardhat stack traces' line numbers the same.
@@ -72,44 +76,58 @@ const config: HardhatUserConfig = {
             // gas: 3E7,
             // gasPrice: 8E9
         },
-        // Ethereum:
-        ethereum: {
-            chainId: 1,
-            url: envs.ETHEREUM_URL ?? "",
-            accounts: [...ethereumMainnetKeys]
+        // Base Chain:
+        "base-mainnet": {
+            chainId: baseChainID,
+            url: envs.BASE_URL ?? "https://mainnet.base.org",
+            accounts: [...baseMainnetKeys],
+            gasPrice: baseGasPrice
         },
-        sepolia: {
-            chainId: 11155111,
-            url: envs.SEPOLIA_URL ?? "",
-            accounts: [...ethereumTestnetKeys]
+        "base-sepolia": {
+            chainId: baseSepoliaChainID,
+            url: envs.BASE_SEPOLIA_URL ?? "https://sepolia.base.org",
+            accounts: [...baseTestnetKeys],
+            gasPrice: baseGasPrice
         },
-        holesky: {
-            chainId: 17000,
-            url: envs.HOLESKY_URL ?? "",
-            accounts: [...ethereumTestnetKeys]
+        "base-local": {
+            url: "http://localhost:8545",
+            accounts: [...baseTestnetKeys],
+            gasPrice: baseGasPrice
         }
     },
     etherscan: {
-        /*
-         * This is not necessarily the same name that is used to define the network.
-         * To see the full list of supported networks, run `$ npx hardhat verify --list-networks`. The identifiers
-         * shown there are the ones that should be used as keys in the `apiKey` object.
-         *
-         * See the link for details:
-         * `https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan#multiple-api-keys-and-alternative-block-explorers`.
-         */
         apiKey: {
-            mainnet: envs.ETHERSCAN_API_KEY ?? "",
-            sepolia: envs.ETHERSCAN_API_KEY ?? "",
-            holesky: envs.ETHERSCAN_API_KEY ?? ""
-        }
+            "base-mainnet": envs.BASESCAN_API_KEY ?? "",
+            "base-sepolia": envs.BASESCAN_API_KEY ?? ""
+        },
+        customChains: [
+            {
+                network: "base-mainnet",
+                chainId: baseChainID,
+                urls: {
+                    apiURL: "https://api.basescan.org/api",
+                    browserURL: "https://basescan.org"
+                }
+            },
+            {
+                network: "base-sepolia",
+                chainId: baseSepoliaChainID,
+                urls: {
+                    apiURL: "https://api-sepolia.basescan.org/api",
+                    browserURL: "https://sepolia.basescan.org"
+                }
+            }
+        ]
     },
     gasReporter: {
         enabled: envs.REPORT_GAS !== undefined,
         excludeContracts: ["vendor/"],
         // currency: "USD", // "CHF", "EUR", etc.
         showMethodSig: true,
-        L1Etherscan: envs.ETHERSCAN_API_KEY ?? ""
+        L2: "base",
+        // Required, because Base is an Optimism-based Ethereum layer-two chain.
+        L1Etherscan: envs.ETHERSCAN_API_KEY ?? "",
+        L2Etherscan: envs.BASESCAN_API_KEY ?? ""
     },
     docgen: {
         pages: "files",

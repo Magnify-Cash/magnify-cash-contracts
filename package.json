@@ -1,10 +1,14 @@
 {
-    "name": "solidity-project-base",
+    "name": "magnify-cash-contracts",
+    "description": "The Magnify Cash SBT and collateral NFT contracts for the Telegram bot.",
     "version": "1.0.0",
+    "license": "BUSL-1.1",
+    "private": true,
     "scripts": {
         "gen:docs": "rm -rf docs && npx hardhat docgen",
         "gen:abi": "rm -rf abi && npx hardhat export-abi",
         "coverage": "npm run clean:cov && SERIAL=true npx hardhat coverage",
+        "deploy:all:base-mainnet": "npm run deploy:all -- --network base-mainnet",
         "slither": "npm run clean:build && slither .",
         "test": "npx hardhat test",
         "clean": "bash scripts/commands/clean.sh",
@@ -14,6 +18,9 @@
         "size": "npm run compile:force && npx hardhat size-contracts",
         "mode:audit": "touch .audit_mode",
         "mode:dev": "rm -f .audit_mode",
+        "deploy:all": "RUN_OPTIMIZER=true npx hardhat ignition deploy ignition/modules/MagnifyCashCollateralNFT.ts --verify",
+        "test:gas:deploy": "npm run test:gas -- test/estimate-deployment.ts",
+        "test:gas:md:deploy": "npm run test:gas:md -- test/estimate-deployment.ts",
         "test:fork": "FORKING=true npm test",
         "test:gas": "REPORT_GAS=true SERIAL=true RUN_OPTIMIZER=true npm test",
         "test:trace": "npm test -- --trace",
@@ -40,6 +47,10 @@
     "engines": {
         "node": ">=21.2.0 || >=20.11.0 <21.0.0",
         "npm": ">=7.0.0"
+    },
+    "dependencies": {
+        "@openzeppelin/contracts": "5.1.0",
+        "@openzeppelin/contracts-upgradeable": "5.1.0"
     },
     "devDependencies": {
         "@commitlint/cli": "19.5.0",
@@ -69,6 +80,14 @@
     "overrides": {
         "hardhat-gas-reporter": "2.2.1"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/blaize-to-magnify-cash/magnify-cash-contracts.git"
+    },
+    "bugs": {
+        "url": "https://github.com/blaize-to-magnify-cash/magnify-cash-contracts/issues"
+    },
+    "homepage": "https://github.com/blaize-to-magnify-cash/magnify-cash-contracts#readme",
     "files": [
         "/contracts/**/*.sol",
         "/artifacts/contracts/**/*.json",
