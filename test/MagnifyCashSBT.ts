@@ -3,7 +3,7 @@ import { ethers, ignition } from "hardhat";
 const { ZeroAddress } = ethers;
 import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 
-import Module from "../ignition/modules/MagnifyCashSBT";
+import SBTModule from "../ignition/modules/MagnifyCashSBT";
 import { verificationResults } from "../scripts/helpers/verification-results";
 
 import type { MagnifyCashSBT } from "../typechain-types";
@@ -17,8 +17,8 @@ describe("MagnifyCashSBT", () => {
     const fixture = async () => {
         const [deployer, backend, account, account2] = await ethers.getSigners();
 
-        const { magnifyCashSBT } = await ignition.deploy(Module);
-        const sbt = magnifyCashSBT as unknown as MagnifyCashSBT;
+        const { sbt: sbtContract } = await ignition.deploy(SBTModule);
+        const sbt = sbtContract as unknown as MagnifyCashSBT;
 
         const defaultAdmin = deployer;
         await sbt.connect(defaultAdmin).grantRole(await sbt.BACKEND_ROLE(), backend);

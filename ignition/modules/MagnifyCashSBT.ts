@@ -1,11 +1,28 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
-import MagnifyCashSBTProxy from "./MagnifyCashSBTProxy";
+const ProxyModule = buildModule("MagnifyCashSBTProxy", (m) => {
+    const deployer = m.getAccount(0);
+    const proxyAdminOwner = deployer;
 
-export default buildModule("MagnifyCashSBT", (m) => {
-    const { proxy, proxyAdmin } = m.useModule(MagnifyCashSBTProxy);
+    const sbt = m.contract("MagnifyCashSBT");
 
-    const magnifyCashSBT = m.contractAt("MagnifyCashSBT", proxy);
+    const defaultAdmin = proxyAdminOwner;
+    const encodedFunctionCall = m.encodeFunctionCall(sbt, "initialize", [defaultAdmin]);
+    const proxy = m.contract("TransparentUpgradeableProxy", [sbt, proxyAdminOwner, encodedFunctionCall]);
 
-    return { magnifyCashSBT, proxy, proxyAdmin };
+    const proxyAdminAddress = m.readEventArgument(proxy, "AdminChanged", "newAdmin");
+
+    const proxyAdmin = m.contractAt("ProxyAdmin", proxyAdminAddress);
+
+    return { proxyAdmin, proxy };
 });
+
+const SBTModule = buildModule("MagnifyCashSBT", (m) => {
+    const { proxy, proxyAdmin } = m.useModule(ProxyModule);
+
+    const sbt = m.contractAt("MagnifyCashSBT", proxy);
+
+    return { sbt, proxy, proxyAdmin };
+});
+
+export default SBTModule;

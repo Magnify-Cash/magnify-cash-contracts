@@ -4,7 +4,7 @@ const { ZeroAddress } = ethers;
 import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 
 import SBTModule from "../ignition/modules/MagnifyCashSBT";
-import Module from "../ignition/modules/MagnifyCashCollateralNFT";
+import CollateralNFTModule from "../ignition/modules/MagnifyCashCollateralNFT";
 import { verificationResults } from "../scripts/helpers/verification-results";
 
 import type { MagnifyCashCollateralNFT, MagnifyCashSBT } from "../typechain-types";
@@ -18,9 +18,9 @@ describe("MagnifyCashCollateralNFT", () => {
     const fixture = async () => {
         const [deployer, backend, pauser, account, sbtlessAccount] = await ethers.getSigners();
 
-        const { magnifyCashCollateralNFT, magnifyCashSBT } = await ignition.deploy(Module);
-        const collateral = magnifyCashCollateralNFT as unknown as MagnifyCashCollateralNFT;
-        const sbt = magnifyCashSBT as unknown as MagnifyCashSBT;
+        const { collateralNFT: collateralNFTContract, sbt: sbtContract } = await ignition.deploy(CollateralNFTModule);
+        const collateral = collateralNFTContract as unknown as MagnifyCashCollateralNFT;
+        const sbt = sbtContract as unknown as MagnifyCashSBT;
 
         const defaultAdmin = deployer;
         await sbt.connect(defaultAdmin).grantRole(await collateral.BACKEND_ROLE(), backend);
@@ -50,8 +50,8 @@ describe("MagnifyCashCollateralNFT", () => {
             let collateral: MagnifyCashCollateralNFT, sbtAddr: string, defaultAdminAddr: string;
 
             beforeEach(async () => {
-                const { magnifyCashSBT } = await ignition.deploy(SBTModule);
-                sbtAddr = await magnifyCashSBT.getAddress();
+                const { sbt: sbtContract } = await ignition.deploy(SBTModule);
+                sbtAddr = await sbtContract.getAddress();
 
                 const [deployer] = await ethers.getSigners();
                 defaultAdminAddr = deployer.address;
