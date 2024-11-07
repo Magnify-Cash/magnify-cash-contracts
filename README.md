@@ -87,3 +87,13 @@ To do this:
    ```
    npx hardhat --network base-mainnet grant-backend MagnifyCashSBT --account 0xREPLACE000000000000000000000000000000000
    ```
+
+## The deployed contracts
+
+The deployed addresses are stored in the JSON file of the corresponding deployment:
+
+- [Base Sepolia](./ignition/deployments/chain-84532/deployed_addresses.json).
+
+  The deployer and default admin is the externally-owned account `0xE63D553ff52AF077b0a79a613442D10EA4A3728B`.
+
+  The backend's Coinbase wallet `0xE90998AEc8f6c9f11Cd42Ea44D6A4FCebCcF51B0` is granted with the backend role.
