@@ -79,7 +79,7 @@ To do this:
    ```
 
    ```shell
-   npx hardhat --network base-mainnet grant-backend MagnifyCashSBT --account <backend-account-address>
+   npx hardhat --network base-mainnet grant-backend MagnifyCashCollateralNFT --account <backend-account-address>
    ```
 
    Example:
