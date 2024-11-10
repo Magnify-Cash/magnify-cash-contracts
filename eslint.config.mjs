@@ -15,7 +15,7 @@ export default eslintTS.config(
         languageOptions: { sourceType: "commonjs" }
     },
     {
-        ignores: ["**/*.mjs", "eslint.config.mjs", ".solcover.js", ".github/**/*"]
+        ignores: ["**/*.mjs", "eslint.config.mjs", ".solcover.js", ".github/**/*", "ignition/deployments/**/*"]
     },
     eslintJS.configs.recommended,
     ...eslintTS.configs.strictTypeChecked,
