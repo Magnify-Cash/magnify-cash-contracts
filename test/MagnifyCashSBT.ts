@@ -4,7 +4,7 @@ const { ZeroAddress } = ethers;
 import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 
 import SBTModule from "../ignition/modules/MagnifyCashSBT";
-import { verificationResults } from "../scripts/helpers/verification-results";
+import { verificationResults } from "../scripts/helpers";
 
 import type { MagnifyCashSBT } from "../typechain-types";
 

@@ -5,7 +5,7 @@ import { loadFixture } from "@nomicfoundation/hardhat-toolbox/network-helpers";
 
 import SBTModule from "../ignition/modules/MagnifyCashSBT";
 import CollateralNFTModule from "../ignition/modules/MagnifyCashCollateralNFT";
-import { verificationResults } from "../scripts/helpers/verification-results";
+import { verificationResults } from "../scripts/helpers";
 
 import type { MagnifyCashCollateralNFT, MagnifyCashSBT } from "../typechain-types";
 
