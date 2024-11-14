@@ -92,13 +92,19 @@ To do this:
 
 The deployed addresses are stored in the JSON file of the corresponding deployment:
 
-- [Base Mainnet](./ignition/deployments/chain-8453/deployed_addresses.json).
+- [Base Mainnet](./ignition/deployments/chain-8453/deployed_addresses.json) (the contracts for the Telegram MAGBot).
 
   The deployer and default admin is the externally-owned account `0x117b7aa196160f14Ac67C918bA9F915d90e0CC8a`.
 
   The backend's Coinbase wallet `0x35AEf5ff3C3AD61A381c475d2eD13747183202DC` is granted with the backend role.
 
-- [Base Sepolia](./ignition/deployments/chain-84532/deployed_addresses.json).
+- [Base Sepolia](./ignition/deployments/chain-84532/deployed_addresses.json) (the contracts for the testing Telegram MAGBot).
+
+  The deployer and default admin is the externally-owned account `0xE63D553ff52AF077b0a79a613442D10EA4A3728B`.
+
+  The backend's Coinbase wallet `0xE90998AEc8f6c9f11Cd42Ea44D6A4FCebCcF51B0` is granted with the backend role.
+
+- [Base Sepolia](./ignition/deployments/chain-84532-mvp/deployed_addresses.json) (the MVP version).
 
   The deployer and default admin is the externally-owned account `0xE63D553ff52AF077b0a79a613442D10EA4A3728B`.
 
