@@ -1,10 +1,10 @@
 {
-    "MagnifyCashCollateralNFTProxy#MagnifyCashCollateralNFT": "0x77a5ABdB9E242D979CEDe399131A13C96d067311",
-    "MagnifyCashSBTProxy#MagnifyCashSBT": "0x6C7EB1f606ad0D9028B52c5e8B961F63C572f5cA",
-    "MagnifyCashSBTProxy#TransparentUpgradeableProxy": "0x46671398Cb8B6d17F1df19c4dFd55cCDf7ec15C1",
-    "MagnifyCashSBTProxy#ProxyAdmin": "0x1bFA137bb58055e82b296805475CFF56096ca26A",
-    "MagnifyCashSBT#MagnifyCashSBT": "0x46671398Cb8B6d17F1df19c4dFd55cCDf7ec15C1",
-    "MagnifyCashCollateralNFTProxy#TransparentUpgradeableProxy": "0x54C0594e7a0Ea0Bd9bD2AA8F455D1954Ca9508Df",
-    "MagnifyCashCollateralNFTProxy#ProxyAdmin": "0x052C075610254db9f5323d7662CfAD71e8D4d9ED",
-    "MagnifyCashCollateralNFT#MagnifyCashCollateralNFT": "0x54C0594e7a0Ea0Bd9bD2AA8F455D1954Ca9508Df"
+  "MagnifyCashCollateralNFTProxy#MagnifyCashCollateralNFT": "0x76012f9e5C6bDA39134B1F00DA8f5cb818e82352",
+  "MagnifyCashSBTProxy#MagnifyCashSBT": "0x86218b1F61F49463263C0E2818416b8debd6e637",
+  "MagnifyCashSBTProxy#TransparentUpgradeableProxy": "0x8a16Fe9cF8eED0e4E6CF5d715DCf0be182C84ef9",
+  "MagnifyCashSBTProxy#ProxyAdmin": "0x500A614B61F36125bBb016D636eab0C2e96a2DCf",
+  "MagnifyCashSBT#MagnifyCashSBT": "0x8a16Fe9cF8eED0e4E6CF5d715DCf0be182C84ef9",
+  "MagnifyCashCollateralNFTProxy#TransparentUpgradeableProxy": "0x3f8265Ff81952676CDf1C25DdE3EEcb4C03C5f57",
+  "MagnifyCashCollateralNFTProxy#ProxyAdmin": "0xB119e3Ed7482cF2366c769f0c68f4d5279d6E0D6",
+  "MagnifyCashCollateralNFT#MagnifyCashCollateralNFT": "0x3f8265Ff81952676CDf1C25DdE3EEcb4C03C5f57"
 }
