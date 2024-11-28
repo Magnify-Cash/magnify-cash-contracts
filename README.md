@@ -94,9 +94,11 @@ The deployed addresses are stored in the JSON file of the corresponding deployme
 
 - [Base Mainnet](./ignition/deployments/chain-8453/deployed_addresses.json) (the contracts for the Telegram MAGBot).
 
-  The deployer and default admin is the externally-owned account `0x117b7aa196160f14Ac67C918bA9F915d90e0CC8a`.
+  The proxy admin's owner and default admin is Gnosis Base Safe `0xcf208D1c7D31697bCB6ee23279162f4F2B3161Ed`.
 
   The backend's Coinbase wallet `0x35AEf5ff3C3AD61A381c475d2eD13747183202DC` is granted with the backend role.
+
+  _The deployer is the externally-owned account `0x117b7aa196160f14Ac67C918bA9F915d90e0CC8a`._
 
 - [Base Sepolia](./ignition/deployments/chain-84532/deployed_addresses.json) (the contracts for the testing Telegram MAGBot).
 

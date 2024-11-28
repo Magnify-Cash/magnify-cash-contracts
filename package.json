@@ -59,6 +59,7 @@
         "@eslint/js": "9.14.0",
         "@nomicfoundation/hardhat-toolbox": "5.0.0",
         "@nomiclabs/hardhat-solhint": "4.0.1",
+        "@openzeppelin/hardhat-upgrades": "3.6.0",
         "@types/eslint__js": "8.42.3",
         "dotenv": "16.4.5",
         "eslint": "9.14.0",

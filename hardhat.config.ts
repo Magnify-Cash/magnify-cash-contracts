@@ -12,6 +12,7 @@ import "hardhat-contract-sizer";
 import "hardhat-abi-exporter";
 import "hardhat-gas-reporter";
 import "hardhat-tracer";
+import "@openzeppelin/hardhat-upgrades";
 
 import "./scripts/tasks/grant-backend-role";
 
